@@ -13,20 +13,32 @@ namespace AjaxjQueryWithMvcPractice.Controllers
         {
             return View();
         }
+        //[HttpGet]
+        //public IActionResult Add()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult Add(Employee employee)
+        //{
+        //    var result=empRepo.Add(employee);
+        //    return RedirectToAction("GetAll");
+        //}
+        //public IActionResult GetAll()
+        //{
+        //    var result=empRepo.GetList();
+        //    return View(result);
+        //}
+
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Add(Employee employee)
+        public IActionResult Register(Employee employee)
         {
-            var result=empRepo.Add(employee);
-            return RedirectToAction("GetAll");
-        }
-        public IActionResult GetAll()
-        {
-            var result=empRepo.GetList();
+            var result = empRepo.AddEmp(employee);
             return View(result);
         }
     }
