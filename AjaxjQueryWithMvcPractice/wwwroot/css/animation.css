@@ -1,0 +1,62 @@
+﻿/*.obj{
+    background-color:purple;
+    border-radius:10px;
+    width:180px;
+    height:100px;
+    animation-name:bounce;
+    animation-duration:20s;
+}*/
+.obj {
+    width: 200px;
+    height: 50px;
+    border-radius:10px;
+    background-color: red;
+    position: relative;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: 4s;
+    animation-direction: alternate;
+    font-style:italic;
+    font-family:serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:-2;
+    left:0px;
+    top:0px;
+    position:absolute;
+    margin-top:170px;
+    opacity:0.7;
+}
+
+@keyframes example {
+    0% {
+        background-color: lightpink;
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-color: lightskyblue;
+        left: 80%;
+        top: 300px;
+    }
+
+    50% {
+        background-color: limegreen;
+        left: 0px;
+        top: 300px;
+    }
+
+    75% {
+        background-color: plum;
+        left: 80%;
+        top: 0px;
+    }
+
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+}
