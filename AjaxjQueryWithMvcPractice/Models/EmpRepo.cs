@@ -66,6 +66,41 @@ namespace AjaxjQueryWithMvcPractice.Models
             }
         }
 
-       
+        public IEnumerable<Employee> GetAllEmp()
+        {
+            try
+            {
+                using (sqlConnection)
+                {
+                    string query = @"Select * From tbl_Employees;";
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                    sqlConnection.Open();
+                    SqlDataReader reader=cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        List<Employee> list = new List<Employee>();
+                        while (reader.Read())
+                        {
+                            Employee emp = new Employee();
+                            emp.Id = reader.GetInt32(0);
+                            emp.Name = reader.GetString(1);
+                            emp.Designation = reader.GetString(2);
+                            emp.Email = reader.GetString(3);
+                            list.Add(emp);
+                        }
+                        return list;
+                    }
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
     }
 }

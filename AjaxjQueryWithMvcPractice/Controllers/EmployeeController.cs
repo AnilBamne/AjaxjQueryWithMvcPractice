@@ -1,5 +1,6 @@
 ﻿using AjaxjQueryWithMvcPractice.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace AjaxjQueryWithMvcPractice.Controllers
 {
@@ -39,6 +40,14 @@ namespace AjaxjQueryWithMvcPractice.Controllers
         public IActionResult Register(Employee employee)
         {
             var result = empRepo.AddEmp(employee);
+            return View(result);
+        }
+
+        public IActionResult GetAllEmp()
+        {
+            var result=empRepo.GetAllEmp();
+            //var json=JsonConvert.SerializeObject(result);
+            //return Json(result);
             return View(result);
         }
     }
